@@ -1,11 +1,12 @@
 import React from "react";
+import './squareStyle.css';
 
 const Square = ({children,updateBoard,index})=>{
     const handleClick = () => {
         updateBoard(index);
     }
     return (
-        <div className='cuadrado' onClick={handleClick}>
+        <div className='square' onClick={handleClick}>
         {children}
         </div>
     );

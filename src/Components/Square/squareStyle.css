@@ -1,0 +1,12 @@
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px rgb(190, 190, 190);
+    border-radius: 5px;
+    width: 10vw;
+    height: 15vh;
+    font-size: 5vw;
+    font-weight: 800;
+    color: #bebebe;
+}

@@ -4,19 +4,19 @@ import './modalStyle.css';
 
 const Modal = document.getElementById('modal');
 
-function ModalWinner(props){
+function ModalWinner(props) {
     const { isVisible, onClickClose, children } = props;
-    if(!isVisible){ return null };
+    if (!isVisible) { return null };
     return ReactDOM.createPortal(
-        <div    className="transparent">
-            <div    className="modalVisible">
-                <div    className="conteinerChildren">
+        <div className="transparent" onClick={onClickClose}>
+            <div className="modalVisible">
+                <div className="conteinerChildren">
                     {children}
                 </div>
                 <button onClick={onClickClose}>Close</button>
             </div>
         </div>
-    ,Modal);
+        , Modal);
 };
 
 export default ModalWinner;

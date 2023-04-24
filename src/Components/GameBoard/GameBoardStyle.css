@@ -1,0 +1,41 @@
+.conteinerBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteinerBoard .board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.turn {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-evenly;
+    font-size: 2vw;
+    font-weight: bold;
+    color: aqua;
+    border: solid 2px rgb(190, 190, 190);
+    border-radius: 5px;
+    width: 10vw;
+    margin-top: 2%;
+    padding: 1%;
+
+}
+
+.turn h1 {
+    font-size: 2vw;
+}
+
+.foot {
+    display: flex;
+    flex-direction: row;
+    width: 30vw;
+    height: 100%;
+    justify-content: space-around;
+    align-items: end;
+}
