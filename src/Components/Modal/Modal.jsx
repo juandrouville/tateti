@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import './modalStyle.css';
 
-const Modal = document.getElementById('modal');
+const Portal = document.getElementById('modal');
 
-function ModalWinner(props) {
+function Modal(props) {
     const { isVisible, onClickClose, children } = props;
     if (!isVisible) { return null };
     return ReactDOM.createPortal(
@@ -13,10 +13,9 @@ function ModalWinner(props) {
                 <div className="conteinerChildren">
                     {children}
                 </div>
-                <button onClick={onClickClose}>Close</button>
             </div>
         </div>
-        , Modal);
+    , Portal);
 };
 
-export default ModalWinner;
+export default Modal;

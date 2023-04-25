@@ -1,10 +1,10 @@
 const combinationsWin = [
-    [0,1,2],[0,3,6],[0,4,8],[3,4,5],[1,4,7],[2,5,8],[2,4,6],[6,7,8]
-  ];
+    [0, 1, 2], [0, 3, 6], [0, 4, 8], [3, 4, 5], [1, 4, 7], [2, 5, 8], [2, 4, 6], [6, 7, 8]
+];
 
 function findThreeEqualNumbers(numbers) {
-// Iterate over the array of arrays
-const arrays = combinationsWin;
+    // Iterate over the array of arrays
+    const arrays = combinationsWin;
     for (let i = 0; i < arrays.length; i++) {
         const array = arrays[i];
         let counter = 0; // Counter to keep track of equal numbers in each array

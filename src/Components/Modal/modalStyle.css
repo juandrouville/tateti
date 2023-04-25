@@ -1,5 +1,5 @@
-.transparent{
-    display:flex;
+.transparent {
+    display: flex;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -7,9 +7,21 @@
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: rgb(0,0,0,0.5);
+    background-color: rgb(0, 0, 0, 0.5);
 }
-.modalVisible{
+
+@keyframes dropTop {
+    0% {
+        transform: translateY(100%) scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%) scale(1);
+        opacity: 1;
+    }
+}
+
+.modalVisible {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,10 +29,14 @@
     height: 60vh;
     border-radius: 5px;
     background-color: #353535;
+    animation-delay: 6s;
+    animation: dropTop 0.5s ease-in-out;
 }
-.conteinerChildren{
+
+.conteinerChildren {
     display: flex;
-    background-color: yellow;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    height: 80%;
+    height: 100%;
 }

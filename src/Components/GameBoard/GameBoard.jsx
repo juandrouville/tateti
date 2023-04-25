@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Square from '../Square/Square';
-import ModalWinner from '../Modal/Modal';
+import Modal from '../Modal/Modal';
 import HaveWinner from '../HaveWinner/HaveWinner';
 import findThreeEqualNumbers from '../../helper/helper';
 import { FiRotateCcw } from "react-icons/fi";
 import './GameBoardStyle.css';
+import HaveTie from "../HaveTie/HaveTie";
 
 function GameBoard() {
     const TURNS = {
@@ -14,18 +15,24 @@ function GameBoard() {
     const [board, setBoard] = useState(Array(9).fill(null));
     const [turn, setTurn] = useState(TURNS.X);
     const [winner, setWinner] = useState(null);
+    const [tie, setTie] = useState(null);
     const [game, setGame] = useState({ X: [], O: [] });
     const [openModal, setOpenModal] = useState(true);
 
+    const checkEndGame = (newGame)=>{
+        return newGame.every((position)=>position !== null);
+    };
+
     const updateBoard = (index) => {
-        if (board[index] || winner) return;
         const newBoard = [...board];
+        if (newBoard[index] || winner) return;
         newBoard[index] = turn;
         setBoard(newBoard);
         const gameActual = game;
         gameActual[turn].push(index);
         setGame(gameActual);
         findThreeEqualNumbers(gameActual[turn]) && setWinner(turn);
+        if(checkEndGame(newBoard)){return setTie(true) && setOpenModal(true)}
         const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
         setTurn(newTurn);
     };
@@ -35,6 +42,7 @@ function GameBoard() {
         setBoard(Array(9).fill(null));
         setGame({ X: [], O: [] });
         setOpenModal(true);
+        setTie(null);
     };
     return (
         <div className='conteinerBoard'>
@@ -59,9 +67,14 @@ function GameBoard() {
                 </section>
             </div>
             {winner &&
-                <ModalWinner isVisible={openModal} onClickClose={() => { setOpenModal(false); refresh() }}>
+                <Modal isVisible={openModal} onClickClose={() => { setOpenModal(false); refresh() }}>
                     <HaveWinner isWinner={winner} />
-                </ModalWinner>
+                </Modal>
+            }
+            {tie && 
+                <Modal isVisible={openModal} onClickClose={() => { setOpenModal(false); refresh() }}>
+                    <HaveTie/>
+                </Modal>
             }
         </div>
     );
