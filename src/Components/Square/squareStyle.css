@@ -10,3 +10,11 @@
     font-weight: 800;
     color: #bebebe;
 }
+
+@media (max-width:800px) {
+    .square {
+        width: 25vw;
+        height: 13vh;
+        font-size: 15vw;
+    }
+}
